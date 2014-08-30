@@ -1,15 +1,18 @@
 
-<form id="frm1" action="form_action.asp">
+<form id="frm1" action="http://www.willrice.org">
 University: <input type="text" name="fname" value="Rice U"><br>
+<br>
+What are you feeling?<br>
 <input type="radio" name="type" onclick="food_drink(this.value)" value="Drink">Drink<br>
 <input type="radio" name="type" onclick="food_drink(this.value)" value="Food">Food<br>
+<br>
+Going out or staying in?<br>
 <input type="radio" name="pickup" onclick="out_in(this.value)" value="Delivery">Delivery<br>
 <input type="radio" name="pickup" onclick="out_in(this.value)" value="Pickup">Pickup<br>
+<br>
+<button onclick="myFunction();">Try it</button>
 </form> 
 
-<p>Click "Try it" to display the value of each element in the form.</p>
-
-<button onclick="myFunction()">Try it</button>
 
 <p id="demo"></p>
 
@@ -26,9 +29,8 @@ function out_in(a){
 
 function myFunction() {
     var x = document.getElementById("frm1");
-    text = x.elements[0].value + "\n";
+    text = x.elements[0].value;
     text = text.replace(' ','+');
-    text += food_or_drink + "\n" + out_or_in + "\n";
     document.getElementById("demo").innerHTML = text;
 
 }
