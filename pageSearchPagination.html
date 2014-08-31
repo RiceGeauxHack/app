@@ -15,9 +15,6 @@
 	<script type="text/javascript"src="form.js"></script>
    <script>
 var map, placesList;
-	
-
-
 
 function initialize() {
     var coordinates={
@@ -42,7 +39,7 @@ function initialize() {
 
   var request = {
     location: lsu,
-    radius: 10000,
+    radius: 5000,
     types: ['bar']
   };
 
@@ -60,9 +57,7 @@ function callback(results, status, pagination) {
 
     if (pagination.hasNextPage) {
       var moreButton = document.getElementById('more');
-
       moreButton.disabled = false;
-
       google.maps.event.addDomListenerOnce(moreButton, 'click',
           function() {
         moreButton.disabled = true;
@@ -112,43 +107,6 @@ function createBehaviors(marker) {
   });
 }
 
-
-function reinitialize(){
-  
-  var lsu = new google.maps.LatLng(100.00, -91.00);
-  map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: lsu,
-    zoom: 17
-  });
-  var request = {
-    location: lsu,
-    radius: 10000,
-    types: ['bar']
-  };
-  placesList = document.getElementById('places');
-  var service = new google.maps.places.PlacesService(map);
-  service.nearbySearch(request, callback2);
-}
-
-function callback2(results, status, pagination) {
-  if (status != google.maps.places.PlacesServiceStatus.OK) {
-    return;
-  } else {
-    createMarkers(results);
-
-    if (pagination.hasNextPage) {
-      var moreButton = document.getElementById('more');
-
-      moreButton.disabled = false;
-
-      google.maps.event.addDomListenerOnce(moreButton, 'click',
-          function() {
-        moreButton.disabled = true;
-        pagination.nextPage();
-      });
-    }
-  }
-}
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
