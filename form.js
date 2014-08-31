@@ -35,5 +35,7 @@ function myFunction() {
     text = text.replace(' ','+');
 	remap();
 }
+
+
 </script>
 
