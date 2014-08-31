@@ -16,17 +16,17 @@
 var map, placesList;
 
 function initialize() {
-  var pyrmont = new google.maps.LatLng(29.722487, -95.39874270000001);
+  var lsu = new google.maps.LatLng(30.4145, -91.1783);
 
   map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: pyrmont,
+    center: lsu,
     zoom: 17
   });
 
   var request = {
-    location: pyrmont,
-    radius: 500,
-    types: ['store']
+    location: lsu,
+    radius: 10000,
+    types: ['bar']
   };
 
   placesList = document.getElementById('places');
