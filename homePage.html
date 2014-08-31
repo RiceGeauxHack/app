@@ -64,6 +64,8 @@ function addParam() {
 
 <td><iframe id="map" src=""></iframe></td>
 <script>
+createFrame();
+function createFrame() {
     var url = window.location.href;
     var coords = url.split("?");
     if (coords.length >= 3){
@@ -72,6 +74,7 @@ function addParam() {
     else{
         document.getElementById('map').src = "pageSearchPagination.html?";
     }
+}
 </script>
 
 </tr></table>

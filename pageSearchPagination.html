@@ -90,13 +90,28 @@ function createMarkers(places) {
       title: place.name,
       position: place.geometry.location
     });
-
+    createBehaviors(marker);
     placesList.innerHTML += '<li>' + place.name + '</li>';
 
     bounds.extend(place.geometry.location);
   }
   map.fitBounds(bounds);
 }
+
+
+function createBehaviors(marker) {
+  var infowindow = new google.maps.InfoWindow(
+      { content: marker.title,
+        size: new google.maps.Size(50,50)
+      });
+  google.maps.event.addListener(marker, 'mouseover', function() {
+    infowindow.open(map,marker);
+  });
+  google.maps.event.addListener(marker, 'mouseout', function() {
+    infowindow.close();
+  });
+}
+
 
 function reinitialize(){
   
