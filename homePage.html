@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
+<script>
 
+</script>
 <head>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
 	<title>Welcome!</title>
@@ -13,6 +15,37 @@
 <table><tr>
 
 <td>
+<form id="myForm" action="#" method="post">
+            <input type='hidden' id="id" name='id' value='123' />
+<div>
+	<label id="txtfield" class="label">Name Of University</label><br><input id="school" type="text" class="txtBox">
+            <input type='submit' name='submit' value='Click me !' onclick='addParam()' />
+        </form>
+<script>
+data=["Rice University", 29.7169, -95.4028,"Louisiana State University", 30.4145, -91.1783, "Stanford University", 37.4300, -122.1700, "University of Louisiana at Monroe", 32.5270, -92.0740, "University of Louisiana at Lafayette", 30.216, -92.0193,"University of Alabama", 33.2094, -87.5415];
+function getCoord(name){
+	for(i=0; i<data.length; i++){
+		if (data[i] === name){
+			coord= {
+				lat: data[i+1],
+				lon: data[i+2]
+			};
+			return coord;
+		}
+	}
+}
+
+function addParam() {
+    var x = document.getElementById("school").value;
+
+    c = getCoord(x);
+    text = 'homePage.html?' + c.lat + '?' + c.lon;
+
+    document.getElementById("myForm").setAttribute('action', text);
+
+}
+</script>
+<!--
 <form id="frm1" action="homePage.html">
 <div>
 	<label id="txtfield" class="label">Name Of University</label><br><input type="text" class="txtBox">
@@ -26,28 +59,28 @@
 <br>
 <div><button class="button" onclick="myFunction();">Try it</button></div>
 </form>
+-->
 </td>
 
-<td><iframe id="map" src="pageSearchPagination.html"></iframe></td>
+<td><iframe id="map" src=""></iframe></td>
+<script>
+    var url = window.location.href;
+    var coords = url.split("?");
+    if (coords.length >= 3){
+        document.getElementById('map').src = "pageSearchPagination.html?" + coords[1] + "?" + coords[2];
+    }
+    else{
+        document.getElementById('map').src = "pageSearchPagination.html?";
+    }
+</script>
 
 </tr></table>
 
 </body>
 
 </html>
-<script>
-
-function myFunction(){	
-	alert(coordinates.lat);
-	alert("penis");
-	coordinates.lat=100.00;
-	coordinates.lon=100.00;
-	alert(coordinates.lat);
-	
-	
-	google.maps.event.addListener(window, 'load', reinitialize);
-	
-}
 
 
-</script>
+
+
+
