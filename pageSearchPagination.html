@@ -24,9 +24,11 @@ function initialize() {
 
     var url = window.location.href;
     var coords = url.split("?");
+    var fod = 'food';
     if (coords.length >= 3){
         coordinates.lat = coords[1];
         coordinates.lon = coords[2];
+        fod = coords[3];
     }
 	
   var lsu = new google.maps.LatLng(coordinates.lat,coordinates.lon);
@@ -36,11 +38,16 @@ function initialize() {
     center: lsu,
     zoom: 17
   });
-
+  if (fod == 'food') {
+      fod = 'restaurant';
+  }
+  else {
+      fod = 'bar';
+  }
   var request = {
     location: lsu,
     radius: 5000,
-    types: ['bar']
+    types: [fod]
   };
 
   placesList = document.getElementById('places');

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <script>
-
+var fod;
 </script>
 <head>
 	<link rel="stylesheet" type="text/css" href="mystyle.css">
@@ -19,6 +19,9 @@
             <input type='hidden' id="id" name='id' value='123' />
 <div>
 	<label id="txtfield" class="label">Name Of University</label><br><input id="school" type="text" class="txtBox">
+	<label class="label">Food or Drinks?</label><br>
+	<label class="option"><input type="radio" name="food" value="food" onclick="fod='food'">Food</label><br>
+	<label class="option"><input type="radio" name="food" value="drinks" onclick="fod='drinks'">Drinks</label>
             <input type='submit' class='button' name='submit' value='Gimme That' onclick='addParam()' />
         </form>
 <script>
@@ -39,7 +42,7 @@ function addParam() {
     var x = document.getElementById("school").value;
 
     c = getCoord(x);
-    text = 'homePage.html?' + c.lat + '?' + c.lon;
+    text = 'homePage.html?' + c.lat + '?' + c.lon + "?" + fod;
 
     document.getElementById("myForm").setAttribute('action', text);
 
@@ -69,7 +72,7 @@ function createFrame() {
     var url = window.location.href;
     var coords = url.split("?");
     if (coords.length >= 3){
-        document.getElementById('map').src = "pageSearchPagination.html?" + coords[1] + "?" + coords[2];
+        document.getElementById('map').src = "pageSearchPagination.html?" + coords[1] + "?" + coords[2] + "?" + coords[3];
     }
     else{
         document.getElementById('map').src = "pageSearchPagination.html?";
