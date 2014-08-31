@@ -14,25 +14,26 @@ Going out or staying in?<br>
 </form> 
 
 
-<p id="demo"></p>
+
 
 <script>
-var food_or_drink = None
-var out_or_in = None
+food_or_drink = None;
+out_or_in = None;
+text= None;
 
 function food_drink(a){
-    food_or_drink = a
+    food_or_drink = a;
 }
 function out_in(a){
-    out_or_in = a
+    out_or_in = a;
 }
 
 function myFunction() {
+	alert("ass");
     var x = document.getElementById("frm1");
     text = x.elements[0].value;
     text = text.replace(' ','+');
-    document.getElementById("demo").innerHTML = text;
-
+	remap();
 }
 </script>
 

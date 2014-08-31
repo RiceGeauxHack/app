@@ -13,9 +13,9 @@
 <table><tr>
 
 <td>
-<form id="frm1" action="HomePage.html">
+<form id="frm1" action="homePage.html">
 <div>
-	<label class="label">Name Of University</label><br><input type="text" class="txtBox">
+	<label id="txtfield" class="label">Name Of University</label><br><input type="text" class="txtBox">
 </div>
 <br>
 <div>
@@ -35,3 +35,19 @@
 </body>
 
 </html>
+<script>
+
+function myFunction(){	
+	alert(coordinates.lat);
+	alert("penis");
+	coordinates.lat=100.00;
+	coordinates.lon=100.00;
+	alert(coordinates.lat);
+	
+	
+	google.maps.event.addListener(window, 'load', reinitialize);
+	
+}
+
+
+</script>
